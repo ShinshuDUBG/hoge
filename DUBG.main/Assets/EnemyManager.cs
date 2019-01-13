@@ -17,7 +17,7 @@ public class EnemyManager : MonoBehaviour {
         if(count >= spaunTime)
         {
             count = 0f;
-            Instantiate(Enemy, new Vector3(Random.Range(-500f, 500f), 0f, Random.Range(-500f, 500f)), Quaternion.identity);
+            Instantiate(Enemy, new Vector3(50f + Random.Range(-100f,100f), 100f, -1852f + Random.Range(-100f, 100f)), Quaternion.identity);
         }
 	}
 }
