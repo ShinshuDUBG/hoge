@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour {
     public GameObject Enemy;
-    public float spaunTime = 2.0f;
+    public float spaunTime = 0.1f;
     float count = 0;
 	// Use this for initialization
 	void Start () {
@@ -17,7 +17,7 @@ public class EnemyManager : MonoBehaviour {
         if(count >= spaunTime)
         {
             count = 0f;
-            Instantiate(Enemy, new Vector3(50f + Random.Range(-100f,100f), 100f, -1852f + Random.Range(-100f, 100f)), Quaternion.identity);
+            Instantiate(Enemy, new Vector3(Random.Range(-57f,1581f), 300f, Random.Range(-1132f, -2677f)), Quaternion.identity);
         }
 	}
 }

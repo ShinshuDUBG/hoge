@@ -12,10 +12,14 @@ public class Enemy : MonoBehaviour
     public GameObject bullet;
     private RaycastHit hit;
     private GameObject player;
+
+    public int cooltime = 30;
+    public int intervalCnt;
+    
     // Use this for initialization
     void Start()
     {
-        HP = 10;
+        HP = 1;
         rig = GetComponent<Rigidbody>();
         n = 0;
         isGround = false;
@@ -33,25 +37,28 @@ public class Enemy : MonoBehaviour
                 n = 0;
                 transform.Rotate(0f, Random.Range(-180, 180), 0f);
             }
-            rig.AddForce(transform.forward * 950f + transform.up * 950f);
+            if (rig.velocity.magnitude < 10f)
+            {
+                rig.AddForce(transform.forward * 950f + transform.up * 950f);
+            }
         }
-        Vector3 v1 = transform.rotation.ToEuler();
-        Vector3 v = (player.transform.position - transform.position);
+
         if ( Vector3.Dot( (player.transform.position - transform.position).normalized, transform.rotation.ToEuler().normalized ) > 0f && Vector3.Distance(player.transform.position, transform.position) < 100f)
         {
             transform.LookAt(player.transform.position);
             Ray ray = new Ray(transform.position, player.transform.position);
             Debug.DrawLine(ray.origin, ray.direction * Mathf.Infinity, Color.red);
-            Debug.Log("saaa");
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
             {
-                if (hit.collider.tag == "Player")
+                if (hit.collider.tag == "Player" && intervalCnt > cooltime)
                 {
-                    Debug.Log("aaaa");
-                    Instantiate(bullet, this.transform.position + this.transform.forward * 1f + this.transform.up * 0.4f, transform.GetChild(0).transform.rotation);
+                    intervalCnt = 0;
+
+                    Instantiate(bullet, this.transform.position + this.transform.forward * 1f + this.transform.up * 0.4f, Quaternion.Euler(transform.GetChild(0).transform.rotation.eulerAngles + new Vector3(Random.Range(-1,1), Random.Range(-1, 1), 0f)));
                 }
             }
         }
+        intervalCnt++;
         if (HP <= 0)
         {
             Destroy(gameObject);
@@ -60,8 +67,9 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision col)
     {
-        if (col.transform.tag == "bullet")
+        if (col.transform.tag == "playersBullet")
         {
+            Destroy(col.gameObject);
             HP -= 1;
         }
     }
