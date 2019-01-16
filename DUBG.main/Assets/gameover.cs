@@ -1,0 +1,25 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class gameover : MonoBehaviour {
+    Slider slider;
+    public GameObject Gameover1;
+    public GameObject Gameover2;
+    public GameObject Gameover3;
+    // Use this for initialization
+    void Start () {
+        slider = GameObject.Find("Slider").GetComponent<Slider>();
+    }
+	
+	// Update is called once per frame
+	void Update () {
+        if (slider.value >= 100)
+        {
+            Gameover1.SendMessage("Lose1");
+            Gameover2.SendMessage("Lose2");
+            Gameover3.SendMessage("Lose3");
+        }
+    }
+}

@@ -6,15 +6,19 @@ using UnityEngine.UI;
 public class timer : MonoBehaviour {
     float time;
     Text text;
+    Slider slider;
 
     void Start()
     {
         time = 0;
         text = GetComponent<Text>();
+        slider = GameObject.Find("Slider").GetComponent<Slider>();
     }
 
     void Update()
     {
+        if (slider.value >= 100)
+            return;
         time += Time.deltaTime;
         int minute = (int)time / 60;
         int second = (int)time % 60;
@@ -29,5 +33,8 @@ public class timer : MonoBehaviour {
             secText = second.ToString();
 
         text.text = minText + ":" + secText;
+
+        
+        
     }
 }

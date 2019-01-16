@@ -1,21 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class player : MonoBehaviour {
     public GameObject bullet;
     Rigidbody rd;
+    float TimeCount = 2;
+    int shoutcount = 100;
     public float verticalAim;
     public bool groundIs;
-	// Use this for initialization
-	void Start () {
+    Slider slider;
+    float hp = 0;
+    // Use this for initialization
+    void Start () {
         rd = GetComponent<Rigidbody>();
+        slider = GameObject.Find("Slider").GetComponent<Slider>();
         groundIs = false;
         verticalAim = 0f;
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         if (groundIs)
         {
             if (rd.velocity.magnitude <= 10f)
@@ -33,7 +40,24 @@ public class player : MonoBehaviour {
         transform.GetChild(0).transform.Rotate(-Input.GetAxisRaw("Vertical") * 90 * Time.deltaTime, 0f, 0f);
         if (Input.GetAxisRaw("Fire") == 1)
         {
-            Instantiate(bullet, this.transform.position + this.transform.forward * 1f+ this.transform.up * 0.4f, this.transform.GetChild(0).transform.rotation);
+            if (shoutcount > 0)
+            {
+                shoutcount -= 1;
+                Instantiate(bullet, this.transform.position + this.transform.forward * 1f + this.transform.up * 0.4f, this.transform.GetChild(0).transform.rotation);
+            }
+        }
+        if (Input.GetButton("reload"))
+        {
+            
+                TimeCount -= Time.deltaTime;
+                if (TimeCount <= 0)
+                {
+
+                    shoutcount = 100;
+
+                    TimeCount = 2;
+                }
+            
         }
     }
 
@@ -42,6 +66,14 @@ public class player : MonoBehaviour {
         if(col.gameObject.tag == "Ground")
         {
             groundIs = true;
+        }
+    }
+    private void OnCollisionEnter(Collision col)
+    {
+        if (col.transform.tag == "bullet")
+        {
+            hp += 1;
+            slider.value = hp;
         }
     }
 }
