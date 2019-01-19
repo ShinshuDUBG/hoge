@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class player : MonoBehaviour {
     public GameObject bullet;
@@ -52,6 +54,7 @@ public class player : MonoBehaviour {
             {
                 rd.AddForce(transform.forward * 950f * -Input.GetAxisRaw("Mouse Y"));
                 rd.AddForce(transform.right * 950f * Input.GetAxisRaw("Mouse X"));
+                rd.AddForce(transform.up * 500f);
             }
             if (Input.GetButtonDown("Jump"))
             {
@@ -90,7 +93,6 @@ public class player : MonoBehaviour {
         }
         if (Input.GetButton("reload"))
         {
-            
                 TimeCount -= Time.deltaTime;
                 if (TimeCount <= 0)
                 {
@@ -100,12 +102,14 @@ public class player : MonoBehaviour {
                     TimeCount = 2;
                     move();
                 }
-            
+        }
+        else
+        {
+            TimeCount = 2;
         }
 
         if( gunGettable && Input.GetButtonDown("Pick") )
         {
-            Debug.Log("AAAAA");
             if( n[1] == -1)
             {
                 setGun(1, gettableGunScr);
@@ -116,9 +120,8 @@ public class player : MonoBehaviour {
             {
                 GameObject s = Instantiate(GunObj[n[0]], gameObject.transform.position + gameObject.transform.forward * 2f + gameObject.transform.up * 2f, Quaternion.identity) as GameObject;
                 Gun g = s.GetComponent<Gun>();
-                g.Create( n[0], cooltime[0], bulletNum[0] );
+                g.Create( n[0], cooltime[0], bulletNum[0], shootcount[0]);
                 setGun(0, gettableGunScr);
-                shootcount[0] = bulletNum[0];
                 Destroy(gettableGunObj);
                 shoutcount = bulletNum[0];
             }
@@ -128,9 +131,26 @@ public class player : MonoBehaviour {
 
         if( Input.GetButton("Change") && n[1] != -1 && groundIs)
         {
-            Debug.Log("Change");
             exchangeGun();
             move();
+        }
+
+        var hits = Physics.SphereCastAll(
+        transform.position,
+        1f,
+        transform.forward,
+        1f,
+        1 << 8
+        ).Select(h => h.transform.gameObject).ToList();
+        if( hits.Count() > 0)
+        {
+            gunGettable = true;
+            gettableGunObj = hits[0].transform.gameObject;
+            gettableGunScr = hits[0].transform.gameObject.GetComponent<Gun>();
+        }
+        else
+        {
+            gunGettable = false;
         }
 
     }
@@ -141,12 +161,6 @@ public class player : MonoBehaviour {
         {
             groundIs = true;
         }
-        else if( col.gameObject.tag == "gun0" || col.gameObject.tag == "gun1" || col.gameObject.tag == "gun2" || col.gameObject.tag == "gun3")
-        {
-            gunGettable = true;
-            gettableGunObj = col.gameObject;
-            gettableGunScr = col.gameObject.GetComponent<Gun>();
-        }
     }
     private void OnCollisionEnter(Collision col)
     {
@@ -156,12 +170,11 @@ public class player : MonoBehaviour {
             slider.value = hp;
         }
     }
-
     private void OnCollisionExit(Collision col)
     {
-        if(col.gameObject.tag == "gun0" || col.gameObject.tag == "gun1" || col.gameObject.tag == "gun2" || col.gameObject.tag == "gun3")
+        if(col.gameObject.tag == "Ground")
         {
-            gunGettable = false;
+            groundIs = false;
         }
     }
 
@@ -170,6 +183,7 @@ public class player : MonoBehaviour {
         n[i] = g.n;
         bulletNum[i] = g.bulletNum;
         cooltime[i] = g.cooltime;
+        shootcount[i] = g.shootcount;
     }
 
     private void exchangeGun()

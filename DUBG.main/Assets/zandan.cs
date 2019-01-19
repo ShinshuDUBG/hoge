@@ -16,8 +16,7 @@ public class zandan : MonoBehaviour {
     // Use this for initialization
     void Start () {
         this.GetComponent<Text>().text = "×" + shoutcount;
-      
-
+        
 
 
     }

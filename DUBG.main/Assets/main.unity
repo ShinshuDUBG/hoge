@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -403,6 +403,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 166659028}
+  - component: {fileID: 166659029}
   m_Layer: 0
   m_Name: GunSpawner
   m_TagString: Untagged
@@ -423,6 +424,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &166659029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 166659027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62ed0d3dbae92b34a8bed3a579b08624, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guns: []
 --- !u!1 &173998956
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,11 +607,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e8f5ee364e03d74cb46863ae5f5df5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Gameover1: {fileID: 6125826}
-  Gameover2: {fileID: 173998956}
-  Gameover3: {fileID: 1741617988}
-  Gameover4: {fileID: 1049956446}
-  Gameover5: {fileID: 1715653796}
+  Gameover1: {fileID: 0}
+  Gameover2: {fileID: 0}
+  Gameover3: {fileID: 0}
+  Gameover4: {fileID: 0}
+  Gameover5: {fileID: 0}
 --- !u!4 &283673842
 Transform:
   m_ObjectHideFlags: 0
@@ -703,12 +716,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1546801264}
   m_GameObject: {fileID: 366035713}
   m_Mesh: {fileID: 4300004, guid: 7e7c5a68504558b45bd9e9301d6c579b, type: 3}
---- !u!114 &368607674 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114627643467559536, guid: 8c1732e178d221c41afd311de63a2662,
-    type: 2}
-  m_PrefabInternal: {fileID: 2081721470}
-  m_Script: {fileID: 11500000, guid: 1c9e521ecbeb8fb4d8625e518b3c7849, type: 3}
 --- !u!1 &402104749
 GameObject:
   m_ObjectHideFlags: 0
@@ -912,48 +919,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 7e7c5a68504558b45bd9e9301d6c579b, type: 3}
   m_PrefabInternal: {fileID: 811222940}
---- !u!1001 &682285593
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4332366967219508, guid: 83dd3b38421fb8348a91333ccfb1901c, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 411
-      objectReference: {fileID: 0}
-    - target: {fileID: 4332366967219508, guid: 83dd3b38421fb8348a91333ccfb1901c, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 4332366967219508, guid: 83dd3b38421fb8348a91333ccfb1901c, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -1648
-      objectReference: {fileID: 0}
-    - target: {fileID: 4332366967219508, guid: 83dd3b38421fb8348a91333ccfb1901c, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4332366967219508, guid: 83dd3b38421fb8348a91333ccfb1901c, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4332366967219508, guid: 83dd3b38421fb8348a91333ccfb1901c, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4332366967219508, guid: 83dd3b38421fb8348a91333ccfb1901c, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4332366967219508, guid: 83dd3b38421fb8348a91333ccfb1901c, type: 2}
-      propertyPath: m_RootOrder
-      value: 11
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 83dd3b38421fb8348a91333ccfb1901c, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &685929224
 GameObject:
   m_ObjectHideFlags: 0
@@ -995,7 +960,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: {fileID: 1661887066874484, guid: 8c1732e178d221c41afd311de63a2662, type: 2}
-  spaunTime: 2
+  spaunTime: 0.1
 --- !u!1001 &714072562
 Prefab:
   m_ObjectHideFlags: 0
@@ -1058,48 +1023,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 780611a67e8e941a2b3aa96e5915a793, type: 2}
   m_PrefabInternal: {fileID: 2056051172}
---- !u!1001 &795048438
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4818218418404866, guid: 3695f615b13d7f84a8ae533e92ed58ac, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 409
-      objectReference: {fileID: 0}
-    - target: {fileID: 4818218418404866, guid: 3695f615b13d7f84a8ae533e92ed58ac, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 4818218418404866, guid: 3695f615b13d7f84a8ae533e92ed58ac, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -1647
-      objectReference: {fileID: 0}
-    - target: {fileID: 4818218418404866, guid: 3695f615b13d7f84a8ae533e92ed58ac, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4818218418404866, guid: 3695f615b13d7f84a8ae533e92ed58ac, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4818218418404866, guid: 3695f615b13d7f84a8ae533e92ed58ac, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4818218418404866, guid: 3695f615b13d7f84a8ae533e92ed58ac, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4818218418404866, guid: 3695f615b13d7f84a8ae533e92ed58ac, type: 2}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 3695f615b13d7f84a8ae533e92ed58ac, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &811222940
 Prefab:
   m_ObjectHideFlags: 0
@@ -1327,7 +1250,7 @@ GameObject:
   - component: {fileID: 1004148061}
   - component: {fileID: 1004148065}
   - component: {fileID: 1004148066}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1503,9 +1426,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4531ff2a79e8c8c4e9a70e7d5b874e01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toolModeInt: 2
-  erosionTypeInt: 3
-  generatorTypeInt: 2
+  toolModeInt: 0
+  erosionTypeInt: 0
+  generatorTypeInt: 0
   isBrushOn: 0
   isBrushHidden: 0
   isBrushPainting: 0
@@ -1515,11 +1438,11 @@ MonoBehaviour:
   brushSoftness: 0.5
   neighbourhoodInt: 0
   useDifferenceMaps: 1
-  thermalIterations: 5
-  thermalMinSlope: 15
+  thermalIterations: 25
+  thermalMinSlope: 1
   thermalFalloff: 0.5
-  hydraulicTypeInt: 1
-  hydraulicIterations: 12
+  hydraulicTypeInt: 0
+  hydraulicIterations: 25
   hydraulicMaxSlope: 60
   hydraulicFalloff: 0.5
   hydraulicRainfall: 0.01
@@ -1535,42 +1458,34 @@ MonoBehaviour:
   hydraulicEntropy: 0
   hydraulicDowncutting: 0.1
   tidalIterations: 25
-  tidalSeaLevel: 150
-  tidalRangeAmount: 90
-  tidalCliffLimit: 45
-  windIterations: 5
-  windDirection: 180
+  tidalSeaLevel: 50
+  tidalRangeAmount: 5
+  tidalCliffLimit: 60
+  windIterations: 25
+  windDirection: 0
   windForce: 0.5
   windLift: 0.01
   windGravity: 0.5
-  windCapacity: 0.5
+  windCapacity: 0.01
   windEntropy: 0.1
-  windSmoothing: 1
-  slopeBlendMinAngle: 30
-  slopeBlendMaxAngle: 45
-  heightBlendPoints:
-  - 0.025
-  - 0.05
-  - 0.06
-  - 0.07
-  - 0.125
-  - 0.15
-  - 0.4305
-  - 0.711
+  windSmoothing: 0.25
+  slopeBlendMinAngle: 60
+  slopeBlendMaxAngle: 75
+  heightBlendPoints: []
   gradientStyles: []
-  voronoiTypeInt: 1
-  voronoiCells: 10
+  voronoiTypeInt: 0
+  voronoiCells: 16
   voronoiFeatures: 1
-  voronoiScale: 0.75
-  voronoiBlend: 0.25
+  voronoiScale: 1
+  voronoiBlend: 1
   diamondSquareDelta: 0.5
   diamondSquareBlend: 1
-  perlinFrequency: 11
+  perlinFrequency: 4
   perlinAmplitude: 1
-  perlinOctaves: 7
-  perlinBlend: 0.05
-  smoothBlend: 0.25
-  smoothIterations: 1
+  perlinOctaves: 8
+  perlinBlend: 1
+  smoothBlend: 1
+  smoothIterations: 0
   normaliseMin: 0
   normaliseMax: 1
   normaliseBlend: 1
@@ -1989,8 +1904,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toolModeInt: 0
-  erosionTypeInt: 3
-  generatorTypeInt: 4
+  erosionTypeInt: 0
+  generatorTypeInt: 0
   isBrushOn: 0
   isBrushHidden: 0
   isBrushPainting: 0
@@ -2023,7 +1938,7 @@ MonoBehaviour:
   tidalSeaLevel: 50
   tidalRangeAmount: 5
   tidalCliffLimit: 60
-  windIterations: 12
+  windIterations: 25
   windDirection: 0
   windForce: 0.5
   windLift: 0.01
@@ -2031,26 +1946,110 @@ MonoBehaviour:
   windCapacity: 0.01
   windEntropy: 0.1
   windSmoothing: 0.25
-  slopeBlendMinAngle: 10
-  slopeBlendMaxAngle: 20
+  slopeBlendMinAngle: 60
+  slopeBlendMaxAngle: 75
   heightBlendPoints: []
   gradientStyles: []
-  voronoiTypeInt: 1
-  voronoiCells: 9
+  voronoiTypeInt: 0
+  voronoiCells: 16
   voronoiFeatures: 1
-  voronoiScale: 0
-  voronoiBlend: 0.25
+  voronoiScale: 1
+  voronoiBlend: 1
   diamondSquareDelta: 0.5
   diamondSquareBlend: 1
   perlinFrequency: 4
   perlinAmplitude: 1
   perlinOctaves: 8
   perlinBlend: 1
-  smoothBlend: 0.25
-  smoothIterations: 1
+  smoothBlend: 1
+  smoothIterations: 0
   normaliseMin: 0
-  normaliseMax: 0.075
+  normaliseMax: 1
   normaliseBlend: 1
+--- !u!1 &1228587042
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1228587046}
+  - component: {fileID: 1228587045}
+  - component: {fileID: 1228587044}
+  - component: {fileID: 1228587043}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!23 &1228587043
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1228587042}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!65 &1228587044
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1228587042}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1228587045
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1228587042}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1228587046
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1228587042}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10, y: -0.9580078, z: -1569}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1229888365
 GameObject:
   m_ObjectHideFlags: 0
@@ -2137,8 +2136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toolModeInt: 0
-  erosionTypeInt: 3
-  generatorTypeInt: 3
+  erosionTypeInt: 0
+  generatorTypeInt: 0
   isBrushOn: 0
   isBrushHidden: 0
   isBrushPainting: 0
@@ -2148,17 +2147,17 @@ MonoBehaviour:
   brushSoftness: 0.5
   neighbourhoodInt: 0
   useDifferenceMaps: 1
-  thermalIterations: 5
-  thermalMinSlope: 15
+  thermalIterations: 25
+  thermalMinSlope: 1
   thermalFalloff: 0.5
-  hydraulicTypeInt: 1
-  hydraulicIterations: 12
+  hydraulicTypeInt: 0
+  hydraulicIterations: 25
   hydraulicMaxSlope: 60
   hydraulicFalloff: 0.5
-  hydraulicRainfall: 0.02
+  hydraulicRainfall: 0.01
   hydraulicEvaporation: 0.5
-  hydraulicSedimentSolubility: 0.06
-  hydraulicSedimentSaturation: 0.15
+  hydraulicSedimentSolubility: 0.01
+  hydraulicSedimentSaturation: 0.1
   hydraulicVelocityRainfall: 0.01
   hydraulicVelocityEvaporation: 0.5
   hydraulicVelocitySedimentSolubility: 0.01
@@ -2168,36 +2167,34 @@ MonoBehaviour:
   hydraulicEntropy: 0
   hydraulicDowncutting: 0.1
   tidalIterations: 25
-  tidalSeaLevel: 150
-  tidalRangeAmount: 90
-  tidalCliffLimit: 45
-  windIterations: 5
-  windDirection: 90
+  tidalSeaLevel: 50
+  tidalRangeAmount: 5
+  tidalCliffLimit: 60
+  windIterations: 25
+  windDirection: 0
   windForce: 0.5
   windLift: 0.01
   windGravity: 0.5
   windCapacity: 0.01
   windEntropy: 0.1
   windSmoothing: 0.25
-  slopeBlendMinAngle: 10
-  slopeBlendMaxAngle: 30
-  heightBlendPoints:
-  - 0.1
-  - 0.3
+  slopeBlendMinAngle: 60
+  slopeBlendMaxAngle: 75
+  heightBlendPoints: []
   gradientStyles: []
-  voronoiTypeInt: 1
-  voronoiCells: 10
+  voronoiTypeInt: 0
+  voronoiCells: 16
   voronoiFeatures: 1
-  voronoiScale: 0.75
-  voronoiBlend: 0.25
-  diamondSquareDelta: 0.2
-  diamondSquareBlend: 0.5
-  perlinFrequency: 2
-  perlinAmplitude: 0.5
-  perlinOctaves: 9
-  perlinBlend: 0.25
-  smoothBlend: 0.25
-  smoothIterations: 1
+  voronoiScale: 1
+  voronoiBlend: 1
+  diamondSquareDelta: 0.5
+  diamondSquareBlend: 1
+  perlinFrequency: 4
+  perlinAmplitude: 1
+  perlinOctaves: 8
+  perlinBlend: 1
+  smoothBlend: 1
+  smoothIterations: 0
   normaliseMin: 0
   normaliseMax: 1
   normaliseBlend: 1
@@ -2212,9 +2209,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4531ff2a79e8c8c4e9a70e7d5b874e01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toolModeInt: 3
-  erosionTypeInt: 3
-  generatorTypeInt: 3
+  toolModeInt: 0
+  erosionTypeInt: 0
+  generatorTypeInt: 0
   isBrushOn: 0
   isBrushHidden: 0
   isBrushPainting: 0
@@ -2224,17 +2221,17 @@ MonoBehaviour:
   brushSoftness: 0.5
   neighbourhoodInt: 0
   useDifferenceMaps: 1
-  thermalIterations: 5
-  thermalMinSlope: 15
+  thermalIterations: 25
+  thermalMinSlope: 1
   thermalFalloff: 0.5
-  hydraulicTypeInt: 1
-  hydraulicIterations: 12
+  hydraulicTypeInt: 0
+  hydraulicIterations: 25
   hydraulicMaxSlope: 60
   hydraulicFalloff: 0.5
-  hydraulicRainfall: 0.02
+  hydraulicRainfall: 0.01
   hydraulicEvaporation: 0.5
-  hydraulicSedimentSolubility: 0.06
-  hydraulicSedimentSaturation: 0.15
+  hydraulicSedimentSolubility: 0.01
+  hydraulicSedimentSaturation: 0.1
   hydraulicVelocityRainfall: 0.01
   hydraulicVelocityEvaporation: 0.5
   hydraulicVelocitySedimentSolubility: 0.01
@@ -2243,40 +2240,38 @@ MonoBehaviour:
   hydraulicMomentum: 1
   hydraulicEntropy: 0
   hydraulicDowncutting: 0.1
-  tidalIterations: 83
-  tidalSeaLevel: 150
-  tidalRangeAmount: 90
-  tidalCliffLimit: 5.3
-  windIterations: 5
-  windDirection: 90
+  tidalIterations: 25
+  tidalSeaLevel: 50
+  tidalRangeAmount: 5
+  tidalCliffLimit: 60
+  windIterations: 25
+  windDirection: 0
   windForce: 0.5
   windLift: 0.01
   windGravity: 0.5
   windCapacity: 0.01
   windEntropy: 0.1
   windSmoothing: 0.25
-  slopeBlendMinAngle: 10
-  slopeBlendMaxAngle: 30
-  heightBlendPoints:
-  - 0.1
-  - 0.3
+  slopeBlendMinAngle: 60
+  slopeBlendMaxAngle: 75
+  heightBlendPoints: []
   gradientStyles: []
-  voronoiTypeInt: 2
-  voronoiCells: 9
-  voronoiFeatures: 0.046
-  voronoiScale: 0
-  voronoiBlend: 0.051
-  diamondSquareDelta: 0.2
-  diamondSquareBlend: 0.5
-  perlinFrequency: 2
-  perlinAmplitude: 0.5
-  perlinOctaves: 9
-  perlinBlend: 0.25
-  smoothBlend: 0.25
-  smoothIterations: 1
+  voronoiTypeInt: 0
+  voronoiCells: 16
+  voronoiFeatures: 1
+  voronoiScale: 1
+  voronoiBlend: 1
+  diamondSquareDelta: 0.5
+  diamondSquareBlend: 1
+  perlinFrequency: 4
+  perlinAmplitude: 1
+  perlinOctaves: 8
+  perlinBlend: 1
+  smoothBlend: 1
+  smoothIterations: 0
   normaliseMin: 0
-  normaliseMax: 0.036
-  normaliseBlend: 0.032
+  normaliseMax: 1
+  normaliseBlend: 1
 --- !u!1 &1242224248
 GameObject:
   m_ObjectHideFlags: 0
@@ -3047,8 +3042,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e970016dc11a58d4bae9ac613cc4c07d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: {fileID: 1999769797}
-  kill: {fileID: 368607674}
+  time: {fileID: 0}
+  kill: {fileID: 0}
 --- !u!1 &1735673569
 GameObject:
   m_ObjectHideFlags: 0
@@ -3063,7 +3058,7 @@ GameObject:
   - component: {fileID: 1735673574}
   - component: {fileID: 1735673575}
   - component: {fileID: 1735673576}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3130,7 +3125,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1735673569}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 407, y: 106, z: -1647}
+  m_LocalPosition: {x: 364, y: 106, z: -1947}
   m_LocalScale: {x: 0.3870413, y: 0.8198518, z: 0.4363094}
   m_Children:
   - {fileID: 1004148064}
@@ -3163,7 +3158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d925730dd4b973d4d89810e6927da71f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 1925342316755392, guid: fce853430160eea4ab27165067fd4b16, type: 2}
+  bullet: {fileID: 0}
   TimeCount: 2
   shoutcount: 100
   verticalAim: 0
@@ -3172,16 +3167,8 @@ MonoBehaviour:
   gunScr: {fileID: 0}
   shootcount: 0000000000000000
   gunGettable: 0
-  GunObj:
-  - {fileID: 1062413375050850, guid: 174aa6ca671ee8640b92de137aeaa351, type: 2}
-  - {fileID: 1697734171788604, guid: 3695f615b13d7f84a8ae533e92ed58ac, type: 2}
-  - {fileID: 1285982612944272, guid: 327540091c64b024687e10c832618cfe, type: 2}
-  - {fileID: 1241318393792458, guid: 83dd3b38421fb8348a91333ccfb1901c, type: 2}
-  bullets:
-  - {fileID: 1841502259416260, guid: 171de91d3cc4cb847af51c54c7a799dd, type: 2}
-  - {fileID: 1175471973941888, guid: 128016457fcc61649a6fd50f4035e2d1, type: 2}
-  - {fileID: 1401003849071314, guid: 7c4bd0ba84ff66b40b3d01b8e67df514, type: 2}
-  - {fileID: 1243326539533434, guid: d06c847cbd43c834ab988369fc92bb25, type: 2}
+  GunObj: []
+  bullets: []
 --- !u!136 &1735673576
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4096,45 +4083,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96c01c0ae620488479e7392d7747e087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &2137414121
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4834606331428954, guid: 327540091c64b024687e10c832618cfe, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 409
-      objectReference: {fileID: 0}
-    - target: {fileID: 4834606331428954, guid: 327540091c64b024687e10c832618cfe, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 4834606331428954, guid: 327540091c64b024687e10c832618cfe, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -1645
-      objectReference: {fileID: 0}
-    - target: {fileID: 4834606331428954, guid: 327540091c64b024687e10c832618cfe, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4834606331428954, guid: 327540091c64b024687e10c832618cfe, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4834606331428954, guid: 327540091c64b024687e10c832618cfe, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4834606331428954, guid: 327540091c64b024687e10c832618cfe, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4834606331428954, guid: 327540091c64b024687e10c832618cfe, type: 2}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 327540091c64b024687e10c832618cfe, type: 2}
-  m_IsPrefabParent: 0

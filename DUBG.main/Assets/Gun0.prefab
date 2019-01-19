@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4716157757066722}
   - component: {fileID: 33651340570436106}
   - component: {fileID: 23745719140955486}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PM-40_Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 54771397627636180}
   - component: {fileID: 136854341631592586}
   - component: {fileID: 114682201147546278}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gun0
   m_TagString: gun0
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 4042590425261020}
   - component: {fileID: 33706522659993878}
   - component: {fileID: 23126835940580218}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PM-40_Magazine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 4645577228388436}
   - component: {fileID: 33311922078706792}
   - component: {fileID: 23307709073544040}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PM-40_Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 4525018883364344}
   - component: {fileID: 33699777504407924}
   - component: {fileID: 23650453864513178}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PM-40_Receiver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,9 +118,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1062413375050850}
-  m_LocalRotation: {x: 0.4999509, y: 0.5000491, z: -0.4999498, w: 0.5000503}
+  m_LocalRotation: {x: -0.50005233, y: -0.4999477, z: -0.4999477, w: 0.50005233}
   m_LocalPosition: {x: -2.16, y: -6.79, z: 0.66}
-  m_LocalScale: {x: 0.08465883, y: 0.08465885, z: 0.08465883}
+  m_LocalScale: {x: 0.0025, y: 0.0025, z: 0.0025}
   m_Children:
   - {fileID: 4042590425261020}
   - {fileID: 4525018883364344}
@@ -128,7 +128,7 @@ Transform:
   - {fileID: 4645577228388436}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: -89.98801}
 --- !u!4 &4525018883364344
 Transform:
   m_ObjectHideFlags: 1
@@ -402,6 +402,7 @@ MonoBehaviour:
   n: 0
   cooltime: 10
   bulletNum: 100
+  shootcount: 100
 --- !u!136 &136854341631592586
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -411,7 +412,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 55.427753
-  m_Height: 170.71413
+  m_Radius: 50
+  m_Height: 0
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
