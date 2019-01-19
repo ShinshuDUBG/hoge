@@ -5,11 +5,13 @@ using UnityEngine;
 public class bullet : MonoBehaviour
 {
     Rigidbody rd;
+    public int power;
+    public float strength;
     // Use this for initialization
     void Start()
     {
         rd = GetComponent<Rigidbody>();
-        rd.AddForce(transform.forward * 1000f);
+        rd.AddForce(transform.forward * strength);
     }
 
     // Update is called once per frame

@@ -12,6 +12,7 @@ TagManager:
   - gun1
   - gun2
   - gun3
+  - gun0
   layers:
   - Default
   - TransparentFX
