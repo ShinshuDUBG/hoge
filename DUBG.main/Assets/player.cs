@@ -103,7 +103,7 @@ public class player : MonoBehaviour {
             
         }
 
-        if( gunGettable && Input.GetButton("Pick") )
+        if( gunGettable && Input.GetButtonDown("Pick") )
         {
             Debug.Log("AAAAA");
             if( n[1] == -1)
