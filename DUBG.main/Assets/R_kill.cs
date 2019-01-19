@@ -24,4 +24,5 @@ public class R_kill : MonoBehaviour {
 
             this.targetText.text = txt.text;
         }
+    
 }

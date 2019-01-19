@@ -148,9 +148,9 @@ public class player : MonoBehaviour {
             gettableGunScr = col.gameObject.GetComponent<Gun>();
         }
     }
-    private void OnCollisionEnter(Collision col)
+    public void OnCollisionEnter(Collision col)
     {
-        if (col.transform.tag == "bullet")
+        if (col.transform.tag == "enemysBullet")
         {
             hp += 1;
             slider.value = hp;

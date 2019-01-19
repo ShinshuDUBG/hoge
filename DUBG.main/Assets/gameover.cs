@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class gameover : MonoBehaviour {
     Slider slider;
     public GameObject Gameover1;
@@ -10,9 +11,11 @@ public class gameover : MonoBehaviour {
     public GameObject Gameover3;
     public GameObject Gameover4;
     public GameObject Gameover5;
+    
     // Use this for initialization
     void Start () {
         slider = GameObject.Find("Slider").GetComponent<Slider>();
+        
     }
 	
 	// Update is called once per frame
@@ -24,6 +27,7 @@ public class gameover : MonoBehaviour {
             Gameover3.SendMessage("Lose3");
             Gameover4.SendMessage("Lose4");
             Gameover5.SendMessage("Lose5");
+            
         }
     }
 }
