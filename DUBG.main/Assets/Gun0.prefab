@@ -402,9 +402,6 @@ MonoBehaviour:
   n: 0
   cooltime: 10
   bulletNum: 100
-  power: 0
-  strength: 0
-  bullet: {fileID: 1841502259416260, guid: 171de91d3cc4cb847af51c54c7a799dd, type: 2}
 --- !u!136 &136854341631592586
 CapsuleCollider:
   m_ObjectHideFlags: 1

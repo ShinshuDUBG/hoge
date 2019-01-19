@@ -6,16 +6,10 @@ public class Gun : MonoBehaviour {
     public int n;
     public int cooltime;
     public int bulletNum;
-    public int power;
-    public float strength;
-    public GameObject bullet;
-    public void Create(int n, int cooltime, int bulletNum, int power, float strength, GameObject bullet)
+    public void Create(int n, int cooltime, int bulletNum)
     {
         this.n = n;
         this.cooltime = cooltime;
         this.bulletNum = bulletNum;
-        this.power = power;
-        this.strength = strength;
-        this.bullet = bullet;
     }
 }
