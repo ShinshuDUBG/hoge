@@ -162,7 +162,7 @@ public class player : MonoBehaviour {
             groundIs = true;
         }
     }
-    private void OnCollisionEnter(Collision col)
+    public void OnCollisionEnter(Collision col)
     {
         if (col.transform.tag == "enemysBullet")
         {

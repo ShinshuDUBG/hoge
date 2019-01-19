@@ -17,4 +17,5 @@ public class syuuryou : MonoBehaviour
         this.gameObject.GetComponent<Text>().enabled = true;
 
     }
+ 
 }
