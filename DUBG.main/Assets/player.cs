@@ -150,7 +150,7 @@ public class player : MonoBehaviour {
     }
     private void OnCollisionEnter(Collision col)
     {
-        if (col.transform.tag == "bullet")
+        if (col.transform.tag == "enemysBullet")
         {
             hp += 1;
             slider.value = hp;
