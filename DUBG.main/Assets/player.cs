@@ -68,7 +68,7 @@ public class player : MonoBehaviour {
                 if (shootcount[0] > 0 && !gunBool)
                 {
                     shootcount[0] -= 1;
-                    Instantiate(bullets[n[0]], this.transform.position + this.transform.forward * 5f + this.transform.up * 0.4f, this.transform.GetChild(0).transform.rotation);
+                    Instantiate(bullets[n[0]], this.transform.position, this.transform.GetChild(0).transform.rotation);
                     interval = 0;
                     gunBool = true;
                 }
@@ -150,7 +150,7 @@ public class player : MonoBehaviour {
     }
     private void OnCollisionEnter(Collision col)
     {
-        if (col.transform.tag == "bullet")
+        if (col.transform.tag == "enemysBullet")
         {
             hp += 1;
             slider.value = hp;

@@ -6,7 +6,7 @@ public class bullet : MonoBehaviour
 {
     Rigidbody rd;
     public int power;
-    public float strength;
+    public int strength;
     // Use this for initialization
     void Start()
     {
