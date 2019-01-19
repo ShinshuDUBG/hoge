@@ -11,7 +11,7 @@ public class player : MonoBehaviour {
     public float verticalAim;
     public bool groundIs;
     Slider slider;
-    float hp = 0;
+    public float hp = 0;
     // Use this for initialization
     void Start () {
         rd = GetComponent<Rigidbody>();
@@ -70,7 +70,7 @@ public class player : MonoBehaviour {
     }
     private void OnCollisionEnter(Collision col)
     {
-        if (col.transform.tag == "bullet")
+        if (col.transform.tag == "enemysBullet")
         {
             hp += 1;
             slider.value = hp;

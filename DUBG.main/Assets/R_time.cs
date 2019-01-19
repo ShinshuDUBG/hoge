@@ -22,9 +22,5 @@ public class R_time : MonoBehaviour {
         this.targetText = this.GetComponent<Text>();
 
         this.targetText.text = "生存時間　"　+　txt.text;
-
-
-
-
     }
 }

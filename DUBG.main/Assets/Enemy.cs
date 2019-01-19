@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -12,7 +13,8 @@ public class Enemy : MonoBehaviour
     public GameObject bullet;
     private RaycastHit hit;
     private GameObject player;
-
+    public static int killnumber=0;
+    public int kill = 0;
     public int cooltime = 30;
     public int intervalCnt;
     
@@ -62,6 +64,9 @@ public class Enemy : MonoBehaviour
         if (HP <= 0)
         {
             Destroy(gameObject);
+            killnumber += 1;
+            GameObject.Find("killnumber").GetComponent<Text>().text=killnumber.ToString()+"kill";
+            kill = killnumber;
         }
     }
 

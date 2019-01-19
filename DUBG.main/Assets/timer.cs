@@ -7,6 +7,8 @@ public class timer : MonoBehaviour {
     float time;
     Text text;
     Slider slider;
+    public int minute;
+    public int second;
 
     void Start()
     {
@@ -20,8 +22,8 @@ public class timer : MonoBehaviour {
         if (slider.value >= 100)
             return;
         time += Time.deltaTime;
-        int minute = (int)time / 60;
-        int second = (int)time % 60;
+        minute = (int)time / 60;
+        second = (int)time % 60;
         string minText, secText;
         if (minute < 10)
             minText = "0" + minute.ToString();
@@ -33,6 +35,7 @@ public class timer : MonoBehaviour {
             secText = second.ToString();
 
         text.text = minText + ":" + secText;
+    
 
         
         
