@@ -23,4 +23,5 @@ public class R_time : MonoBehaviour {
 
         this.targetText.text = "生存時間　"　+　txt.text;
     }
+    
 }

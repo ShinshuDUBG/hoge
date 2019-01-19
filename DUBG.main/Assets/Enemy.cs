@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        HP = 1;
+        HP = 10;
         rig = GetComponent<Rigidbody>();
         n = 0;
         isGround = false;
@@ -75,7 +75,7 @@ public class Enemy : MonoBehaviour
         if (col.transform.tag == "playersBullet")
         {
             Destroy(col.gameObject);
-            HP -= 1;
+            HP -= col.gameObject.GetComponent<bullet>().strength;
         }
     }
 
