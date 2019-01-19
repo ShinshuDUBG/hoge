@@ -8,6 +8,8 @@ public class gameover : MonoBehaviour {
     public GameObject Gameover1;
     public GameObject Gameover2;
     public GameObject Gameover3;
+    public GameObject Gameover4;
+    public GameObject Gameover5;
     // Use this for initialization
     void Start () {
         slider = GameObject.Find("Slider").GetComponent<Slider>();
@@ -20,6 +22,8 @@ public class gameover : MonoBehaviour {
             Gameover1.SendMessage("Lose1");
             Gameover2.SendMessage("Lose2");
             Gameover3.SendMessage("Lose3");
+            Gameover4.SendMessage("Lose4");
+            Gameover5.SendMessage("Lose5");
         }
     }
 }
