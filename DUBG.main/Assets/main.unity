@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -605,6 +605,28 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114544985540797176, guid: 5e9b28fec5c93af44a5c871cc8305744,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1.0220588
+      objectReference: {fileID: 0}
+    - target: {fileID: 114544985540797176, guid: 5e9b28fec5c93af44a5c871cc8305744,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1.0336684
+      objectReference: {fileID: 0}
+    - target: {fileID: 114544985540797176, guid: 5e9b28fec5c93af44a5c871cc8305744,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1.0370891
+      objectReference: {fileID: 0}
+    - target: {fileID: 114544985540797176, guid: 5e9b28fec5c93af44a5c871cc8305744,
+        type: 2}
+      propertyPath: m_Text
+      value: 'timer
+
+'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e9b28fec5c93af44a5c871cc8305744, type: 2}
@@ -3622,7 +3644,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1821809881}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 406.9667, y: 74, z: -1647.6849}
+  m_LocalPosition: {x: 1236, y: 75.9, z: -2128}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1004148064}
