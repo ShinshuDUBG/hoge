@@ -35,6 +35,8 @@ public class player : MonoBehaviour {
     Text tama;
     public float fallv;
     public float deathdamege;
+    public GameObject scope1;
+    public GameObject scope2;
 
     // Use this for initialization
     void Start () {
@@ -47,6 +49,8 @@ public class player : MonoBehaviour {
         setGun(0, gunScr);
         shootcount[0] = bulletNum[0];
         n[1] = -1;
+        scope1.GetComponent<Image>().enabled = true;
+        scope2.GetComponent<Image>().enabled = false;
 
         tamakazu.GetComponent<Text>().text = "×" + shootcount[0];
 	}
@@ -69,8 +73,23 @@ public class player : MonoBehaviour {
                 rd.AddForce(0f, 12000f, 0f);
             }
         }
-        transform.Rotate(0f, Input.GetAxisRaw("Horizontal") * 90f * Time.deltaTime, 0f);
-        transform.GetChild(0).transform.Rotate(-Input.GetAxisRaw("Vertical") * 90 * Time.deltaTime, 0f, 0f);
+        if (n[0] == 3 && Input.GetAxisRaw("Sight") == 1)
+        {
+            Camera.main.fieldOfView = 10f;
+            scope1.GetComponent<Image>().enabled = false;
+            scope2.GetComponent<Image>().enabled = true;
+            transform.Rotate(0f, Input.GetAxisRaw("Horizontal") * 20f * Time.deltaTime, 0f);
+            transform.GetChild(0).transform.Rotate(-Input.GetAxisRaw("Vertical") * 20 * Time.deltaTime, 0f, 0f);
+        }
+        else
+        {
+            Camera.main.fieldOfView = 60f;
+            scope1.GetComponent<Image>().enabled = true;
+            scope2.GetComponent<Image>().enabled = false;
+            transform.Rotate(0f, Input.GetAxisRaw("Horizontal") * 90f * Time.deltaTime, 0f);
+            transform.GetChild(0).transform.Rotate(-Input.GetAxisRaw("Vertical") * 90 * Time.deltaTime, 0f, 0f);
+        }
+        
         if (n[0] == 0 || n[0] == 3)
         {
             if (Input.GetAxisRaw("Fire") == 1 && interval >= cooltime[0])
@@ -78,7 +97,7 @@ public class player : MonoBehaviour {
                 if (shootcount[0] > 0 && !gunBool)
                 {
                     shootcount[0] -= 1;
-                    Instantiate(bullets[n[0]], this.transform.position + this.transform.forward * 5f + this.transform.up * 0.4f, this.transform.GetChild(0).transform.rotation);
+                    Instantiate(bullets[n[0]], this.transform.GetChild(0).transform.position, this.transform.GetChild(0).transform.rotation);
                     interval = 0;
                     gunBool = true;
                 }
@@ -93,7 +112,7 @@ public class player : MonoBehaviour {
                 if (shootcount[0] > 0)
                 {
                     shootcount[0] -= 1;
-                    Instantiate(bullets[n[0]], this.transform.position + this.transform.forward * 5f + this.transform.up * 0.4f, this.transform.GetChild(0).transform.rotation);
+                    Instantiate(bullets[n[0]], this.transform.GetChild(0).transform.position, this.transform.GetChild(0).transform.rotation);
                     interval = 0;
                 }
             }
@@ -146,7 +165,7 @@ public class player : MonoBehaviour {
         transform.position,
         1f,
         transform.forward,
-        1f,
+        2f,
         1 << 8
         ).Select(h => h.transform.gameObject).ToList();
         if( hits.Count() > 0)
@@ -180,7 +199,6 @@ public class player : MonoBehaviour {
         }
         else if( col.transform.tag == "Ground" && fallv > 5f)
         {
-            Debug.Log( deathdamege * fallv * fallv / 1000f);
             hp += deathdamege * fallv * fallv / 1000f;
             slider.value = hp;
             fallv = 0;

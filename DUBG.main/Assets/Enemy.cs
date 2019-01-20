@@ -17,6 +17,9 @@ public class Enemy : MonoBehaviour
     public int kill = 0;
     public int cooltime = 30;
     public int intervalCnt;
+
+    public bool damaged;
+    private int effectTimer;
     
     // Use this for initialization
     void Start()
@@ -26,6 +29,7 @@ public class Enemy : MonoBehaviour
         n = 0;
         isGround = false;
         player = GameObject.Find("Player");
+        damaged = false;
     }
 
     // Update is called once per frame
@@ -39,7 +43,7 @@ public class Enemy : MonoBehaviour
                 n = 0;
                 transform.Rotate(0f, Random.Range(-180, 180), 0f);
             }
-            if (rig.velocity.magnitude < 10f)
+            if (rig.velocity.magnitude < 10f && Vector3.Distance(player.transform.position, transform.position) > 10f)
             {
                 rig.AddForce(transform.forward * 950f + transform.up * 950f);
             }
@@ -52,11 +56,12 @@ public class Enemy : MonoBehaviour
             Debug.DrawLine(ray.origin, ray.direction * Mathf.Infinity, Color.red);
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
             {
+                Debug.Log("sasasaassas");
                 if (hit.collider.tag == "Player" && intervalCnt > cooltime)
                 {
                     intervalCnt = 0;
 
-                    Instantiate(bullet, this.transform.position + this.transform.forward * 1f + this.transform.up * 0.4f, Quaternion.Euler(transform.GetChild(0).transform.rotation.eulerAngles + new Vector3(Random.Range(-1,1), Random.Range(-1, 1), 0f)));
+                    Instantiate(bullet, this.transform.position + this.transform.forward * 1f + this.transform.up * 0.4f, Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(Random.Range(-1,1), Random.Range(-1, 1), 0f)));
                 }
             }
         }
@@ -68,6 +73,20 @@ public class Enemy : MonoBehaviour
             GameObject.Find("killnumber").GetComponent<Text>().text=killnumber.ToString()+"kill";
             kill = killnumber;
         }
+        if (damaged)
+        {
+            if(effectTimer < 50)
+            {
+                effectTimer += 1;
+            }
+            else
+            {
+                damaged = false;
+                effectTimer = 0;
+                gameObject.transform.GetChild(0).GetComponent<Renderer>().material.color = Color.white;
+                gameObject.transform.GetChild(1).GetComponent<Renderer>().material.color = Color.white;
+            }
+        }
     }
 
     private void OnCollisionEnter(Collision col)
@@ -75,7 +94,10 @@ public class Enemy : MonoBehaviour
         if (col.transform.tag == "playersBullet")
         {
             Destroy(col.gameObject);
-            HP -= col.gameObject.GetComponent<bullet>().strength;
+            HP -= col.gameObject.GetComponent<bullet>().power;
+            damaged = true;
+            gameObject.transform.GetChild(0).GetComponent<Renderer>().material.color = Color.red;
+            gameObject.transform.GetChild(1).GetComponent<Renderer>().material.color = Color.red;
         }
     }
 
