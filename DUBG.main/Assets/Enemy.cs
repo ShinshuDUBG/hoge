@@ -56,7 +56,6 @@ public class Enemy : MonoBehaviour
             Debug.DrawLine(ray.origin, ray.direction * Mathf.Infinity, Color.red);
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
             {
-                Debug.Log("sasasaassas");
                 if (hit.collider.tag == "Player" && intervalCnt > cooltime)
                 {
                     intervalCnt = 0;

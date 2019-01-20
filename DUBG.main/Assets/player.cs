@@ -73,19 +73,26 @@ public class player : MonoBehaviour {
                 rd.AddForce(0f, 12000f, 0f);
             }
         }
-        if (n[0] == 3 && Input.GetAxisRaw("Sight") == 1)
-        {
-            Camera.main.fieldOfView = 10f;
-            scope1.GetComponent<Image>().enabled = false;
-            scope2.GetComponent<Image>().enabled = true;
-            transform.Rotate(0f, Input.GetAxisRaw("Horizontal") * 20f * Time.deltaTime, 0f);
-            transform.GetChild(0).transform.Rotate(-Input.GetAxisRaw("Vertical") * 20 * Time.deltaTime, 0f, 0f);
+        if (n[0] == 3) {
+            if (Input.GetAxisRaw("Sight") == 1)
+            {
+                Camera.main.fieldOfView = 10f;
+                scope1.GetComponent<Image>().enabled = false;
+                scope2.GetComponent<Image>().enabled = true;
+                transform.Rotate(0f, Input.GetAxisRaw("Horizontal") * 20f * Time.deltaTime, 0f);
+                transform.GetChild(0).transform.Rotate(-Input.GetAxisRaw("Vertical") * 20 * Time.deltaTime, 0f, 0f);
+            }
+            else
+            {
+                Camera.main.fieldOfView = 60f;
+                scope1.GetComponent<Image>().enabled = true;
+                scope2.GetComponent<Image>().enabled = false;
+                transform.Rotate(0f, Input.GetAxisRaw("Horizontal") * 90f * Time.deltaTime, 0f);
+                transform.GetChild(0).transform.Rotate(-Input.GetAxisRaw("Vertical") * 90 * Time.deltaTime, 0f, 0f);
+            }
         }
         else
         {
-            Camera.main.fieldOfView = 60f;
-            scope1.GetComponent<Image>().enabled = true;
-            scope2.GetComponent<Image>().enabled = false;
             transform.Rotate(0f, Input.GetAxisRaw("Horizontal") * 90f * Time.deltaTime, 0f);
             transform.GetChild(0).transform.Rotate(-Input.GetAxisRaw("Vertical") * 90 * Time.deltaTime, 0f, 0f);
         }
