@@ -11,6 +11,7 @@ public class gameover : MonoBehaviour {
     public GameObject Gameover3;
     public GameObject Gameover4;
     public GameObject Gameover5;
+    public float deathdamage = 100f;
     
     // Use this for initialization
     void Start () {
@@ -20,7 +21,7 @@ public class gameover : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (slider.value >= 100)
+        if (slider.value >= deathdamage)
         {
             Gameover1.SendMessage("Lose1");
             Gameover2.SendMessage("Lose2");

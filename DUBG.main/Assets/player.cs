@@ -31,17 +31,24 @@ public class player : MonoBehaviour {
     public GameObject[] GunObj;
     public GameObject[] bullets;
 
+    public GameObject tamakazu;
+    Text tama;
+    public float fallv;
+    public float deathdamege;
+
     // Use this for initialization
     void Start () {
         rd = GetComponent<Rigidbody>();
         slider = GameObject.Find("Slider").GetComponent<Slider>();
+        deathdamege = GameObject.Find("gameover").GetComponent<gameover>().deathdamage;
         groundIs = false;
         verticalAim = 0f;
-
         gunScr = GunObj[0].GetComponent<Gun>();
         setGun(0, gunScr);
         shootcount[0] = bulletNum[0];
         n[1] = -1;
+
+        tamakazu.GetComponent<Text>().text = "×" + shootcount[0];
 	}
 
     // Update is called once per frame
@@ -71,7 +78,7 @@ public class player : MonoBehaviour {
                 if (shootcount[0] > 0 && !gunBool)
                 {
                     shootcount[0] -= 1;
-                    Instantiate(bullets[n[0]], this.transform.position, this.transform.GetChild(0).transform.rotation);
+                    Instantiate(bullets[n[0]], this.transform.position + this.transform.forward * 5f + this.transform.up * 0.4f, this.transform.GetChild(0).transform.rotation);
                     interval = 0;
                     gunBool = true;
                 }
@@ -153,6 +160,8 @@ public class player : MonoBehaviour {
             gunGettable = false;
         }
 
+        tamakazu.GetComponent<Text>().text = "×" + shootcount[0];
+        fallv = max(-rd.velocity.y, fallv);
     }
 
     void OnCollisionStay(Collision col)
@@ -168,6 +177,13 @@ public class player : MonoBehaviour {
         {
             hp += 1;
             slider.value = hp;
+        }
+        else if( col.transform.tag == "Ground" && fallv > 5f)
+        {
+            Debug.Log( deathdamege * fallv * fallv / 1000f);
+            hp += deathdamege * fallv * fallv / 1000f;
+            slider.value = hp;
+            fallv = 0;
         }
     }
     private void OnCollisionExit(Collision col)
@@ -215,5 +231,17 @@ public class player : MonoBehaviour {
     {
         this.transform.Translate(0f, 0.2f, 0f);
         groundIs = false;
+    }
+
+    private float max(float a, float b)
+    {
+        if(a > b)
+        {
+            return a;
+        }
+        else
+        {
+            return b;
+        }
     }
 }

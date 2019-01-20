@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 1
-  strength: 500
+  strength: 1000
 --- !u!135 &135138220459920960
 SphereCollider:
   m_ObjectHideFlags: 1
