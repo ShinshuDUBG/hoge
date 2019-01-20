@@ -13,6 +13,7 @@ TagManager:
   - gun2
   - gun3
   - gun0
+  - treasure
   layers:
   - Default
   - TransparentFX
