@@ -13,8 +13,8 @@ public class Enemy : MonoBehaviour
     public GameObject bullet;
     private RaycastHit hit;
     private GameObject player;
-    public static int killnumber=0;
-    public int kill = 0;
+    public static int killnumber;
+    public int kill = 0 ;
     public int cooltime = 30;
     public int intervalCnt;
 
@@ -27,6 +27,7 @@ public class Enemy : MonoBehaviour
         HP = 10;
         rig = GetComponent<Rigidbody>();
         n = 0;
+        
         isGround = false;
         player = GameObject.Find("Player");
         damaged = false;
@@ -35,6 +36,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        kill = killnumber;
         if (isGround)
         {
             n += 1;
@@ -69,8 +71,9 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
             killnumber += 1;
+            
             GameObject.Find("killnumber").GetComponent<Text>().text=killnumber.ToString()+"kill";
-            kill = killnumber;
+           
         }
         if (damaged)
         {
