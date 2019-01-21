@@ -32,7 +32,7 @@ public class point : MonoBehaviour
         time_p1 = time.minute*60;
         time_p2 = time.second;
         time_p = time_p1 + time_p2;
-        kill_p = kill.kill  ;
+        kill_p = kill.kill * 60 ;
        
         score = kill_p + time_p;
         this.GetComponent<Text>().text = "Score:"+ score.ToString();
