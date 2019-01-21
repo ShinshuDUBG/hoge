@@ -204,9 +204,9 @@ public class player : MonoBehaviour {
             hp += 1;
             slider.value = hp;
         }
-        else if( col.transform.tag == "Ground" && fallv > 5f)
+        else if( col.transform.tag == "Ground" && fallv > 10f)
         {
-            hp += deathdamege * fallv * fallv / 1000f;
+            hp += deathdamege * fallv * fallv / 1500f;
             slider.value = hp;
             fallv = 0;
         }
