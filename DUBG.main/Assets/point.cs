@@ -8,7 +8,10 @@ public class point : MonoBehaviour
     Text txt;
     public timer time;
     public Enemy kill;
-    public int time_p1, time_p2, time_p, kill_p,Point;
+    
+    
+
+    public int time_p1, time_p2, time_p, kill_p,score;
     
 
 
@@ -16,7 +19,7 @@ public class point : MonoBehaviour
     
     void Start()
     {
-        DontDestroyOnLoad(this);
+        
         this.gameObject.GetComponent<Text>().enabled = false;
         
     }
@@ -29,9 +32,10 @@ public class point : MonoBehaviour
         time_p1 = time.minute*60;
         time_p2 = time.second;
         time_p = time_p1 + time_p2;
-        kill_p = kill.kill;
-        Point = kill_p + time_p;
-        this.GetComponent<Text>().text = "Score:"+ Point.ToString();
+        kill_p = kill.kill  ;
+       
+        score = kill_p + time_p;
+        this.GetComponent<Text>().text = "Score:"+ score.ToString();
     }
 
    
