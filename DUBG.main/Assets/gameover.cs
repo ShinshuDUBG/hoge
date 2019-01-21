@@ -11,6 +11,7 @@ public class gameover : MonoBehaviour {
     public GameObject Gameover3;
     public GameObject Gameover4;
     public GameObject Gameover5;
+    public GameObject Gameover6;
     public float deathdamage = 100f;
     
     // Use this for initialization
@@ -28,7 +29,8 @@ public class gameover : MonoBehaviour {
             Gameover3.SendMessage("Lose3");
             Gameover4.SendMessage("Lose4");
             Gameover5.SendMessage("Lose5");
-            
+            Gameover6.SendMessage("Lose6");
+
         }
     }
 }
